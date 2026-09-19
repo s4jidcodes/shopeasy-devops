@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopEasy — Everything You Need, All In One Place</title>
+<meta name="description" content="ShopEasy — Premium electronics, accessories and wearables. Free shipping over ₹5,000.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Announcement bar -->
+<div class="announce">Free shipping on orders over ₹5,000 &nbsp;·&nbsp; Use code <b>WELCOME10</b> for 10% off your first order</div>
+
+<!-- Header -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <button class="hbtn menu-toggle" onclick="openMobileMenu()" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="#home" class="logo">SHOP<span>EASY</span></a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#featured">Shop</a>
+      <a href="#collections">Collections</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+    </nav>
+    <div class="header-actions">
+      <button class="hbtn" onclick="openSearch()" aria-label="Search">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+      </button>
+      <button class="hbtn" aria-label="Account">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg>
+      </button>
+      <button class="hbtn" onclick="toast('Wishlist: ' + wishlist.length + ' item(s) saved ❤')" aria-label="Wishlist">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l8.8 8.9 8.8-8.9a5.5 5.5 0 0 0 0-7.8z"/></svg>
+        <span class="badge hidden" id="wishCount">0</span>
+      </button>
+      <button class="hbtn" onclick="openCart()" aria-label="Cart">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1.5 13.5a1 1 0 0 1-1 1.1H5.5a1 1 0 0 1-1-1.1L6 7z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>
+        <span class="badge" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mm-head">
+    <span class="logo">SHOP<span>EASY</span></span>
+    <button class="hbtn" onclick="closeMobileMenu()" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+    </button>
+  </div>
+  <nav class="mm-links">
+    <a href="#home" onclick="closeMobileMenu()">Home</a>
+    <a href="#featured" onclick="closeMobileMenu()">Shop</a>
+    <a href="#collections" onclick="closeMobileMenu()">Collections</a>
+    <a href="#about" onclick="closeMobileMenu()">About</a>
+    <a href="#reviews" onclick="closeMobileMenu()">Reviews</a>
+  </nav>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="hero-bg-shape"></div>
+  <div class="hero-content">
+    <p class="kicker reveal-hero">New Season · New Tech</p>
+    <h1 class="reveal-hero">Everything you need.<br>All in one place.</h1>
+    <p class="reveal-hero">Discover premium electronics, accessories and wearables at prices you'll love — with fast delivery and easy returns across India.</p>
+    <div class="hero-btns reveal-hero">
+      <a href="#featured" class="btn btn-dark">Shop Now</a>
+      <a href="#collections" class="btn btn-ghost">Explore Collection</a>
+    </div>
+    <div class="hero-stats reveal-hero">
+      <div><b>12k+</b><span>Happy customers</span></div>
+      <div><b>500+</b><span>Quality products</span></div>
+      <div><b>4.9★</b><span>Average rating</span></div>
+    </div>
+  </div>
+  <div class="hero-media reveal-hero-img">
+    <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=1000&q=80"
+         alt="Premium technology products — laptop, headphones and smartwatch" onerror="imgFallback(this,'TECH')">
+    <div class="hero-card-float">
+      <b>₹55,000</b>
+      <span>Premium Laptop</span>
+      <small>★★★★★ 4.9 · 2,340 reviews</small>
+    </div>
+  </div>
+</section>
+
+<!-- Featured collection -->
+<section class="section" id="featured">
+  <div class="section-head reveal">
+    <h2>Featured Products</h2>
+    <div class="chip-row" id="chipRow">
+      <button class="chip active" data-cat="All" onclick="filterCat('All', this)">All</button>
+      <button class="chip" data-cat="Electronics" onclick="filterCat('Electronics', this)">Electronics</button>
+      <button class="chip" data-cat="Accessories" onclick="filterCat('Accessories', this)">Accessories</button>
+      <button class="chip" data-cat="Wearables" onclick="filterCat('Wearables', this)">Wearables</button>
+    </div>
+  </div>
+  <div class="grid" id="productGrid"></div>
+</section>
+
+<!-- Collections -->
+<section class="section tinted" id="collections">
+  <div class="section-head reveal"><h2>Shop by Collection</h2></div>
+  <div class="collections reveal">
+    <button class="collection-tile" onclick="filterCat('Electronics');document.getElementById('featured').scrollIntoView({behavior:'smooth'})">
+      <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=80" alt="Electronics collection" onerror="imgFallback(this,'ELECTRONICS')">
+      <div class="tile-body"><h3>Electronics</h3><p>Smart devices &amp; gadgets</p><span class="tile-link">Shop Collection →</span></div>
+    </button>
+    <button class="collection-tile" onclick="filterCat('Accessories');document.getElementById('featured').scrollIntoView({behavior:'smooth'})">
+      <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=900&q=80" alt="Accessories collection" onerror="imgFallback(this,'ACCESSORIES')">
+      <div class="tile-body"><h3>Accessories</h3><p>Upgrade your setup</p><span class="tile-link">Shop Collection →</span></div>
+    </button>
+    <button class="collection-tile" onclick="filterCat('Wearables');document.getElementById('featured').scrollIntoView({behavior:'smooth'})">
+      <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=900&q=80" alt="Wearables collection" onerror="imgFallback(this,'WEARABLES')">
+      <div class="tile-body"><h3>Wearables</h3><p>Smart lifestyle products</p><span class="tile-link">Shop Collection →</span></div>
+    </button>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section" id="about">
+  <div class="split reveal">
+    <div class="split-media">
+      <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=80" alt="Customer shopping online with secure payment" onerror="imgFallback(this,'SHOPEASY')">
+    </div>
+    <div class="split-body">
+      <p class="kicker">Why ShopEasy</p>
+      <h2>Built for people who love to shop.</h2>
+      <p>From premium laptops to everyday accessories, every product is hand-picked for quality. Enjoy free shipping over ₹5,000, 30-day easy returns, and support that actually cares.</p>
+      <a href="#featured" class="btn btn-dark">Start Shopping</a>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section class="section tinted" id="reviews">
+  <div class="section-head reveal"><h2>What Our Customers Say</h2></div>
+  <div class="reviews reveal">
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>"Ordered the Premium Laptop — delivery in 3 days, packaging was excellent. Best online shopping experience I've had!"</p>
+      <div class="who">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Rahul S." onerror="imgFallback(this,'RS')">
+        <div><b>Rahul S.</b><span>✓ Verified Buyer · Mumbai</span></div>
+      </div>
+    </div>
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>"The wireless headphones are amazing value for money. ShopEasy's prices beat every other site I checked."</p>
+      <div class="who">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="Priya M." onerror="imgFallback(this,'PM')">
+        <div><b>Priya M.</b><span>✓ Verified Buyer · Bengaluru</span></div>
+      </div>
+    </div>
+    <div class="review">
+      <div class="stars">★★★★☆</div>
+      <p>"Smooth checkout, quick support replies, and the smart watch looks premium. Highly recommended store."</p>
+      <div class="who">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="Arjun K." onerror="imgFallback(this,'AK')">
+        <div><b>Arjun K.</b><span>✓ Verified Buyer · Delhi</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter">
+  <h2 class="reveal">Join the ShopEasy Club</h2>
+  <p class="reveal">Subscribe for exclusive deals, new arrivals and 10% off your first order.</p>
+  <form class="nl-form reveal" onsubmit="subscribe(event)">
+    <input type="email" id="nlEmail" placeholder="Your email address" required aria-label="Email address">
+    <button type="submit">Subscribe</button>
+  </form>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-logo">SHOP<span>EASY</span></div>
+      <p class="foot-desc">Quality products, great prices and a simple shopping experience. Java-Based E-Commerce Website — DevOps Experiment 10.</p>
+      <div class="pay-row"><span class="pay">VISA</span><span class="pay">Mastercard</span><span class="pay">UPI</span><span class="pay">PayPal</span></div>
+    </div>
+    <div><h4>Shop</h4><a href="#featured">All Products</a><a href="#collections">Electronics</a><a href="#collections">Accessories</a><a href="#collections">Wearables</a></div>
+    <div><h4>Support</h4><a href="#">Contact Us</a><a href="#">FAQs</a><a href="#">Shipping Policy</a><a href="#">Returns</a></div>
+    <div><h4>Company</h4><a href="#about">About Us</a><a href="#">Careers</a><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 ShopEasy. College Project.</span>
+    <span>Powered by ☕ Java &amp; ❤️</span>
+  </div>
+</footer>
+
+<!-- Search overlay -->
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-panel">
+    <div class="sp-head">
+      <div class="sp-input">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+        <input type="text" id="searchInput" placeholder="Search products..." oninput="renderSearchResults()">
+      </div>
+      <button class="hbtn" onclick="closeSearch()" aria-label="Close search">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+      </button>
+    </div>
+    <div class="sp-results" id="searchResults"></div>
+  </div>
+</div>
+
+<!-- Cart drawer -->
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping cart">
+  <div class="drawer-head"><h3>Your Cart</h3><button class="x" onclick="closeCart()" aria-label="Close cart">✕</button></div>
+  <div id="cartItems"></div>
+  <div class="drawer-foot">
+    <div class="subtotal"><span>Subtotal</span><strong id="cartTotal">₹0</strong></div>
+    <p class="tax-note">Taxes, discounts &amp; shipping calculated at checkout.</p>
+    <button class="checkout" id="checkoutBtn" onclick="checkout()">Check Out →</button>
+    <a class="viewcart" href="#featured" onclick="closeCart()">Continue Shopping</a>
+  </div>
+</aside>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
